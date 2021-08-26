@@ -1,4 +1,3 @@
-import time
 from datetime import datetime
 from tabulate import tabulate
 import stofur
@@ -23,7 +22,7 @@ if time_input != '':
 table = stofur.get_data(date, stofa)
 
 if len(table) == 0:
-    print('Stofan er ekkert bókuð í dag!')
+    print('Stofan er ekkert bókuð þennan dag!')
 else:
     occupied = False
     for slot in table:
@@ -39,8 +38,8 @@ else:
                 break
 
     print('Eftirfarandi tíma er stofan bókuð:')
-    print(tabulate(table, headers={'from': 'Frá', 'to': 'To', 'comment': 'Athugasemd', 'group': 'Hópur'}))
+    print(tabulate(table, headers={'from': 'Frá', 'to': 'Til', 'comment': 'Athugasemd', 'group': 'Hópur'}))
     if occupied:
         print('\nStofan er upptekin á skilgreindum tíma.')
     else:
-        print('\nStofan virðist vera laus. Sjá nánar í tölfu')
+        print('\nStofan virðist vera laus. Sjá nánar í töflu')
